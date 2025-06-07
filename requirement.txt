@@ -2,3 +2,5 @@ fastapi
 pillow
 ImageHash
 uvicorn[standard]
+python-dotenv
+
