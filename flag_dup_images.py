@@ -122,15 +122,10 @@ def find_similar_images(folder_path):
 #     return similar_images
 # curl -X GET "http://localhost:8000/process?folder_path=C:/Users/vipul/Downloads/wetransfer_images-over-1000_2025-04-02_1930&dest_folder=C:/Users/vipul/Downloads/destination"
 # {"min_time":"2025-04-02 19:35:00","max_time":"2025-04-02 19:35:00","duplicates_moved":256}
-
 @app.get("/process")
-def process_images(folder_path: str, dest_folder: str):
-    #folder_path="C:/Users/vipul/Downloads/sample"
-    folder_path="C:/Users/vipul/Downloads/wetransfer_images-over-1000_2025-04-02_1930"
-
-    dest_folder="C:/Users/vipul/Downloads/wetransfer_images-over-1000_2025-04-02_1930/moved_files"
-    min_time, max_time = get_time_range(folder_path)
-    duplicate_count = move_duplicates(folder_path, dest_folder)
+def process_images():
+    min_time, max_time = get_time_range(SOURCE_FOLDER)
+    duplicate_count = move_duplicates(SOURCE_FOLDER, DEST_FOLDER)
     print("done")
     return {
         "min_time": str(min_time),
