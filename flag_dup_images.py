@@ -1,3 +1,19 @@
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
+import io
+import imagehash
+import datetime
+from PIL import Image
+from fastapi import FastAPI
+from typing import List
+
+# Load folder paths from .env
+SOURCE_FOLDER = os.getenv("SOURCE_FOLDER")
+DEST_FOLDER = os.getenv("DEST_FOLDER")
+
+
 import os
 import io
 import imagehash
